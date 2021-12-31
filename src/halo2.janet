@@ -156,8 +156,9 @@
           status (if file-exists? 200 404)
           gzip? (= "application/gzip" content-type)]
       (http-response-string @{:status status
-                              :headers (merge headers {"Content-Type" content-type
-                                                       "Content-Encoding" (when gzip? "gzip")})
+                              :headers (merge {"Content-Type" content-type}
+                                              headers
+                                              {"Content-Encoding" (when gzip? "gzip")})
                               :body body}))
     # regular http responses
     (http-response-string response)))
