@@ -239,6 +239,9 @@
             # The buffer can be cleared because it is now on the request.
             (buffer/clear buf)
 
+            # Add the peername to the request
+            (put request :peer-name (net/peername stream))
+
             # Call the application handler with the completed request
             (when (not handled)
               (as-> (handler request) _

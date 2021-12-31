@@ -1,0 +1,7 @@
+.git
+build
+.github
+.devcontainer
+.gitignore
+docker-compose.yml
+docker-hub.sh
